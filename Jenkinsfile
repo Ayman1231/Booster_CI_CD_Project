@@ -6,12 +6,21 @@ pipeline {
         stage('Preparation') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/Ayman1231/Booster_CI_CD_Project/find/master'
+                git 'https://github.com/Ayman1231/Booster_CI_CD_Project'
             }
-         stage('Preparation') {
+         stage('Build') {
             steps {
-                // Get some code from a GitHub repository
-                git 'https://github.com/Ayman1231/Booster_CI_CD_Project/find/master'
+               sh 'docker build -f Dockerfile . -t ayman/project'
+            }
+             
+          stage('Push') {
+            steps {
+               sh 'docker push aymanhesham/project1:ayman/project'
+            }
+              
+          stage('Deploy') {
+            steps {
+               sh 'docker run -d -p 3000:3000 ayman/project'
             }
 
             post {
@@ -21,6 +30,7 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
                 }
+                
             }
         }
     }

@@ -30,13 +30,13 @@ pipeline {
             post {
                 
                 success {
-                    slackSend (color: '#00FF00' , message: "Successful run"
+                    slackSend (color: '#00FF00' , message: "Successful run")
                 }
                 failure {
-                    slackSend (color: '#E83009' , message: "Fail to run"
+                    slackSend (color: '#E83009' , message: "Fail to run")
                 }
                  aborted {
-                    slackSend (color: '#E8E200' , message: "Aborted run"
+                    slackSend (color: '#E8E200' , message: "Aborted run")
                 }             
             }
          }

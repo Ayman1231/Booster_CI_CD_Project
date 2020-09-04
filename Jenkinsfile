@@ -31,9 +31,14 @@ pipeline {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
                 success {
-                    slackSend (color: '#00FF00' , message: 'Successful run'
+                    slackSend (color: '#00FF00' , message: "Successful run"
                 }
-                
+                failure {
+                    slackSend (color: '#E83009' , message: "Fail to run"
+                }
+                 aborted {
+                    slackSend (color: '#E8E200' , message: "Aborted run"
+                }             
             }
         }
     }

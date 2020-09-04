@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'myslave'}
+    agent any
     
     stages {
         stage('Preparation') {

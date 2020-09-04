@@ -26,7 +26,7 @@ pipeline {
             steps {
                sh 'docker run -d -p 9000:8000 ayman/project'
             }
-
+          }
             post {
                 
                 success {
@@ -39,6 +39,5 @@ pipeline {
                     slackSend (color: '#E8E200' , message: "Aborted run"
                 }             
             }
-        }
-    }
-}
+         }
+     

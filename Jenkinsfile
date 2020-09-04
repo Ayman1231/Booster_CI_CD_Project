@@ -24,7 +24,7 @@ pipeline {
           }
           stage('Deploy') {
             steps {
-               sh 'docker run -d -p 3000:3000 ayman/project'
+               sh 'docker run -d -p 8080:8080 ayman/project'
             }
 
             post {

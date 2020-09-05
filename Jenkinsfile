@@ -2,12 +2,6 @@ pipeline {
     agent any
     
     stages {
-        stage('Preparation') {
-            steps {
-                // Get some code from a GitHub repository
-                git 'https://github.com/Ayman1231/Booster_CI_CD_Project'
-            }
-        }
          stage('Build') {
             steps {
                sh 'docker build -f Dockerfile . -t ayman/project'

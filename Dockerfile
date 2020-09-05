@@ -1,4 +1,5 @@
 FROM ubuntu
+USER root
 RUN apt-get update -qq
 RUN apt-get -y install python3.6
 RUN apt-get -qqy install python3-pip

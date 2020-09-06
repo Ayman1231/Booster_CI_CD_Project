@@ -4,15 +4,14 @@ pipeline {
     stages {
          stage('Build') {
             steps {
-               sh 'docker build -f Dockerfile . -t ayman/project'
+               sh 'docker build . -t ayman/project'
             }
          }
              
           stage('Push') {
             steps {
                withCredentials([usernamePassword(credentialsId:"docker",usernameVariable:"USERNAME",passwordVariable:"PASSWORD")]){
-               sh 'docker login --username $USERNAME --password $PASSWORD'
-               sh 'docker tag ayman/project ayman/project' 
+               sh 'docker login --username $USERNAME --password $PASSWORD' 
                sh 'docker push ayman/project'
             }
            }

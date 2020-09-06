@@ -12,7 +12,7 @@ pipeline {
             steps {
                withCredentials([usernamePassword(credentialsId:"docker",usernameVariable:"USERNAME",passwordVariable:"PASSWORD")]){
                sh 'docker login --username $USERNAME --password $PASSWORD'
-               sh 'docker push aymanhesham/project1:ayman/project'
+               sh 'docker push ayman/project'
             }
            }
           }

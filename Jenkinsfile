@@ -1,18 +1,19 @@
+
 pipeline {
     agent any
     
     stages {
          stage('Build') {
             steps {
-               sh 'docker build -f Dockerfile . -t ayman/project'
+               sh 'docker build . -t aymanhesham/myproject:v1.0'
             }
          }
              
           stage('Push') {
             steps {
                withCredentials([usernamePassword(credentialsId:"docker",usernameVariable:"USERNAME",passwordVariable:"PASSWORD")]){
-               sh 'docker login --username $USERNAME --password $PASSWORD'
-               sh 'docker push aymanhesham/project1:ayman/project'
+               sh 'docker login --username $USERNAME --password $PASSWORD' 
+               sh 'docker push aymanhesham/myproject:v1.0 '
             }
            }
           }

@@ -2,10 +2,9 @@ FROM ubuntu
 USER root
 RUN apt-get update -qq
 RUN apt-get -y install python3.6
-RUN apt-get -qqy install python3-pip
 RUN set -xe \
     && apt-get update \
-    && apt-get install python-pip
+    && apt-get install python3-pip
 RUN pip install --upgrade pip
 ADD . /simpleApp
 WORKDIR /simpleApp

@@ -3,7 +3,7 @@ USER root
 RUN apt-get update -qq
 RUN apt-get install python3.6
 RUN apt-get install python3-pip3
-ADD ./simpleApp
+ADD . /simpleApp
 RUN pip install -r requirements.txt
 RUN python3.6 manage.py makemigrations
 RUN python3.6 manage.py migrate
